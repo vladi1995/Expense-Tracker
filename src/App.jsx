@@ -1,38 +1,18 @@
-import './App.css'
+import './App.css';
+import Create from './components/Create/Create';
+import Details from './components/Details/Details';
+import { ExpenseProvider } from './contexts/ExpenseContext';
 
 function App() {
   return (
-    <div className="container">
-      <h1>Expense Tracker</h1>
-      <form id="expense-form">
-        <input type="text"
-          id="expense-name"
-          placeholder="Expense Name" required />
-        <input type="number"
-          id="expense-amount"
-          placeholder="Amount" required />
-        <button type="submit">
-          Add Expense
-        </button>
-      </form>
-      <div className="expense-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Expense Name</th>
-              <th>Amount</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="expense-list"></tbody>
-        </table>
-        <div className="total-amount">
-          <strong>Total:</strong>
-          $<span id="total-amount">0</span>
-        </div>
+    <ExpenseProvider>
+      <div className="container">
+        <h1>Expense Tracker</h1>
+        <Create />
+        <Details />
       </div>
-    </div>
+    </ExpenseProvider>
   );
 }
 
-export default App
+export default App;
