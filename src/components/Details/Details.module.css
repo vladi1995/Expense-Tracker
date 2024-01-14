@@ -19,11 +19,22 @@
   tbody td { 
     padding: 10px; 
     border-top: 1px solid #ddd; 
+    max-width: 150px;
   } 
+  
+  tbody td p {
+    word-wrap: break-word;
+  }
   
   .delete-btn { 
     color: red; 
     cursor: pointer; 
+  } 
+
+  .edit-btn { 
+    color: green; 
+    cursor: pointer; 
+    margin-left: 10px;
   } 
   
   .total-amount { 

@@ -2,7 +2,7 @@ import { useExpenseContext } from '../../contexts/ExpenseContext';
 import styles from './Details.module.css';
 
 export default function Details() {
-    const { allExpenses, cost, onDeleteExpense } = useExpenseContext();
+    const { allExpenses, cost, onDeleteExpense, onEditExpense, isEditMode } = useExpenseContext();
 
     return (
         <div className={`${styles['expense-table']}`}>
@@ -17,9 +17,14 @@ export default function Details() {
                 <tbody id="expense-list">
                     {allExpenses.map((expense, index) =>
                         <tr key={index}>
-                            <td>{expense.expenseName}</td>
+                            <td>
+                                {isEditMode ? <input type="text" /> : <p>{expense.expenseName}</p>}
+                            </td>
                             <td>${expense.expenseValue}</td>
-                            <td className={`${styles['delete-btn']}`} onClick={() => onDeleteExpense(index)}>Delete</td>
+                            <td>
+                                <span className={`${styles['delete-btn']}`} onClick={() => onDeleteExpense(index)}>Delete</span>
+                                <span className={`${styles['edit-btn']}`} onClick={() => onEditExpense(index)}>Edit</span>
+                            </td>
                         </tr>
                     )}
                 </tbody>

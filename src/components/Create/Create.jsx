@@ -1,5 +1,6 @@
 import { useExpenseContext } from '../../contexts/ExpenseContext';
 import { useForm } from '../../hooks/useForm';
+// eslint-disable-next-line no-unused-vars
 import styles from './Create.module.css';
 
 export default function Create() {
