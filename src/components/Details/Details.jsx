@@ -15,6 +15,7 @@ export default function Details() {
     isEditMode,
     edittedElement,
     onEditElement,
+    handleCancelClick
   } = useExpenseContext();
 
   const initialValuesKeys = {
@@ -59,7 +60,7 @@ export default function Details() {
                     <span className={`${styles["edit-icon"]}`} onClick={onSubmit}>
                       <CiEdit />
                     </span>
-                    <span className={`${styles["delete-icon"]}`}>
+                    <span className={`${styles["delete-icon"]}`} onClick={handleCancelClick}>
                       <FcCancel />
                     </span>
                   </>
@@ -67,7 +68,26 @@ export default function Details() {
                   <p>{expense.expenseName}</p>
                 )}
               </td>
-              <td>${expense.expenseValue}</td>
+              <td>
+              {isEditMode ? (
+                  <>
+                    <input
+                      type="number"
+                      name={initialValuesKeys.ExpenseValue}
+                      value={values[initialValuesKeys.ExpenseValue] || ""}
+                      onChange={onChangeValues}
+                    />
+                    <span className={`${styles["edit-icon"]}`} onClick={onSubmit}>
+                      <CiEdit />
+                    </span>
+                    <span className={`${styles["delete-icon"]}`} onClick={handleCancelClick}>
+                      <FcCancel />
+                    </span>
+                  </>
+                ) : (
+                  <p>${expense.expenseValue}</p>
+                )}
+              </td>
               <td>
                 <span
                   className={`${styles["delete-btn"]}`}

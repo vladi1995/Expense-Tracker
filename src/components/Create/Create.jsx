@@ -17,7 +17,7 @@ export default function Create() {
     }, onAddExpense);
 
     return (
-        <form id="expense-form" onSubmit={onSubmit}>
+        <form className={styles['create-form']} onSubmit={onSubmit}>
             <input type="text"
                 id="expense-name"
                 name={initialValuesKeys.ExpenseName}

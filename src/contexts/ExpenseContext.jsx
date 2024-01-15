@@ -28,6 +28,10 @@ export const ExpenseProvider = ({
         setIsEditMode(true);
       };
 
+    const handleCancelClick = () => {
+        setIsEditMode(false);
+    }
+
     const onEditElement = (newValues) => {
         setAllExpenses(oldExpenses => oldExpenses.map((x, i) => i == edittedElementIndex ? newValues : x));
         setIsEditMode(false);
@@ -42,6 +46,7 @@ export const ExpenseProvider = ({
         isEditMode,
         edittedElement,
         onEditElement,
+        handleCancelClick
     };
     
 
