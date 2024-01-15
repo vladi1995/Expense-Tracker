@@ -1,44 +1,62 @@
-.expense-table { 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  } 
-  
-  table { 
-    width: 100%; 
-    border-collapse: collapse; 
-  } 
-  
-  thead th { 
-    background-color: #f2f2f2; 
-    padding: 10px; 
-    text-align: left; 
-  } 
-  
-  tbody td { 
-    padding: 10px; 
-    border-top: 1px solid #ddd; 
-    max-width: 150px;
-  } 
-  
-  tbody td p {
-    word-wrap: break-word;
-  }
-  
-  .delete-btn { 
-    color: red; 
-    cursor: pointer; 
-  } 
+.expense-table {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .edit-btn { 
-    color: green; 
-    cursor: pointer; 
-    margin-left: 10px;
-  } 
-  
-  .total-amount { 
-    padding: 10px; 
-    text-align: right; 
-    background-color: #f2f2f2; 
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  width: 33.3%;
+  text-align: center;
+}
+
+tbody td {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  max-width: 150px;
+  text-align: center;
+}
+
+tbody td p {
+  word-wrap: break-word;
+}
+
+.delete-btn {
+  color: red;
+  cursor: pointer;
+}
+
+.edit-btn {
+  color: green;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.total-amount {
+  padding: 10px;
+  text-align: right;
+  background-color: #f2f2f2;
+}
+
+.edit-icon {
+  color: green;
+  font-size: 25px;
+  padding-left: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.delete-icon {
+  font-size: 25px;
+  padding-left: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
