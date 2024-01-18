@@ -3,13 +3,13 @@ import { useForm } from "../../hooks/useForm";
 // eslint-disable-next-line no-unused-vars
 import styles from "./Login.module.css";
 
+const loginValues = {
+  Email: "email",
+  Password: "password",
+};
+
 export default function Login() {
   const { onLoginSubmit } = useAuthContext();
-
-  const loginValues = {
-    Email: "email",
-    Password: "password",
-  };
 
   const { values, onChangeValues, onSubmit } = useForm({
     [loginValues.Email]: '',

@@ -41,11 +41,11 @@ const requester = async (method, url, data) => {
     return result;
 }
 
-export const requestFactory = (token) => {
+export const requestFactory = () => {
     return {
-        get: requester.bind(null, 'GET', token),
-        post: requester.bind(null, 'POST', token),
-        put: requester.bind(null, 'PUT', token),
-        del: requester.bind(null, 'DELETE', token),
+        get: requester.bind(null, 'GET'),
+        post: requester.bind(null, 'POST'),
+        put: requester.bind(null, 'PUT'),
+        del: requester.bind(null, 'DELETE'),
     };
 };
