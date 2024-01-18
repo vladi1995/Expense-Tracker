@@ -17,9 +17,9 @@ function App() {
         <div className={`${styles["container-wrapper"]}`}>
           <Routes>
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/register" element={<Register />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/catalog" element={<Details />} /> */}
+            <Route path="/register" element={<Register />} />
+            {/* <Route path="/create" element={<Create />} />
+            <Route path="/catalog" element={<Details />} />  */}
           </Routes>
         </div>
         <Footer />

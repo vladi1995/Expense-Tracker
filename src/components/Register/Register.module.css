@@ -1,10 +1,6 @@
-.container {
-  max-width: 100%;
+.container-register {
   margin: 0 auto;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 50px;
 }
 
 .container-info {
@@ -25,7 +21,7 @@
   text-align: center;
 }
 
-.expenses {
+/* .expenses {
   display: block;
   margin: 0 auto;
   padding: 10px;
@@ -34,7 +30,7 @@
   border-radius: 4px;
   outline: none;
   width: 350px;
-}
+} */
 
 input[type="text"]::placeholder,
 input[type="number"]::placeholder {

@@ -1,5 +1,6 @@
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
+import validateInfo from "../../util/validateInfo";
 // eslint-disable-next-line no-unused-vars
 import styles from "./Login.module.css";
 
@@ -11,10 +12,10 @@ const loginValues = {
 export default function Login() {
   const { onLoginSubmit } = useAuthContext();
 
-  const { values, onChangeValues, onSubmit } = useForm({
+  const { values, onChangeValues, onSubmit, errors } = useForm({
     [loginValues.Email]: '',
     [loginValues.Password]: '',
-  }, onLoginSubmit);
+  }, onLoginSubmit, validateInfo);
 
   return (
     <section className={`${styles["container-login"]}`}>
@@ -23,29 +24,27 @@ export default function Login() {
         <div className={styles.img}>
           <img src="/login-icon.png" alt="logo-login" />
         </div>
-        <div>
-          <form className={`${styles["login-form"]}`} method="POST" onSubmit={onSubmit}>
+        <div className={`${styles['input-validate']}`}>
+          <form className={`${styles['login-form']}`} method="POST" onSubmit={onSubmit}>
             <div>
               <input
                 type="text"
-                className={`${styles["expenses"]}`}
+                className={`${errors[loginValues.Email] ? `${styles.invalid} ${styles.expenses}` : `${styles.expenses}`}`}
                 name={loginValues.Email}
                 value={values[loginValues.Email]}
                 onChange={onChangeValues}
-                placeholder="Email"
-                required
+                placeholder="Email..."
               />
             </div>
 
             <div>
               <input
                 type="password"
-                className={`${styles["expenses"]}`}
+                className={`${errors[loginValues.Password] ? `${styles.invalid} ${styles.expenses}` : `${styles.expenses}`}`}
                 name={loginValues.Password}
                 value={values[loginValues.Password]}
                 onChange={onChangeValues}
                 placeholder="Password..."
-                required
               />
             </div>
 

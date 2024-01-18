@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useForm = (initialValues, submitHandler) => {
+export const useForm = (initialValues, submitHandler, validate) => {
     const [values, setValues] = useState(initialValues);
+    const [errors, setErrors] = useState({});
 
     const onChangeValues = (e) => {
-        setValues(oldValues => ({...oldValues, [e.target.name]: e.target.value}));
+        setValues(oldValues => ({ ...oldValues, [e.target.name]: e.target.value }));
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        submitHandler(values);
-        setValues(initialValues);
+        // setValues(initialValues);
+        setErrors(validate(values));
     };
 
     const newValues = (values) => {
@@ -22,5 +23,6 @@ export const useForm = (initialValues, submitHandler) => {
         onChangeValues,
         onSubmit,
         newValues,
+        errors,
     };
 };

@@ -32,9 +32,25 @@
   width: 350px;
 }
 
+.invalid {
+  border: 1px solid red;
+  color: red;
+}
+
 input[type="text"]::placeholder,
 input[type="number"]::placeholder {
   color: #999;
+}
+
+.input-validate {
+  display: flex;
+  align-items: center;
+}
+
+.span-validate {
+  color: red;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .btn-login {

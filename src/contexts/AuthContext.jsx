@@ -9,6 +9,15 @@ export const AuthProvider = ({children}) => {
 
     const authService = authServiceFactory();
 
+    const onRegisterSubmit = async (data) => {
+        try {
+            const result = await authService.register(data);
+            setAuth(result);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     const onLoginSubmit = async (data) => {
         try {
             const result = await authService.login(data);
@@ -20,6 +29,7 @@ export const AuthProvider = ({children}) => {
 
     const contextValues = {
         onLoginSubmit,
+        onRegisterSubmit
     }
 
     return <AuthContext.Provider value={contextValues}>
