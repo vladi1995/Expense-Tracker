@@ -13,5 +13,9 @@ export default function validateInfo(values) {
         errors.password = 'Password needs to be 3 characters or more';
     }
 
+    if (values.password !== values['repeat-password']) {
+        errors['repeat-password'] = 'Passwords do not match!';
+    }
+
     return errors;
 }

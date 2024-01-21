@@ -10,7 +10,7 @@ const loginValues = {
 };
 
 export default function Login() {
-  const { onLoginSubmit } = useAuthContext();
+  const { onLoginSubmit, serverError } = useAuthContext();
 
   const { values, onChangeValues, onSubmit, errors } = useForm({
     [loginValues.Email]: '',
@@ -51,6 +51,9 @@ export default function Login() {
             <button type="submit" className={`${styles["btn-login"]}`}>
               Login
             </button>
+            {serverError && <p className={`${styles['errors-paragraph']}`}>{serverError}</p>}
+            {errors[loginValues.Email] && <p className={`${styles['errors-paragraph']}`}>{errors[loginValues.Email]}</p>}
+            {errors[loginValues.Password] && <p className={`${styles['errors-paragraph']}`}>{errors[loginValues.Password]}</p>}
           </form>
         </div>
       </article>

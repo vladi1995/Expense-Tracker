@@ -37,6 +37,10 @@
   color: red;
 }
 
+.errors-paragraph {
+  color: red;
+}
+
 input[type="text"]::placeholder,
 input[type="number"]::placeholder {
   color: #999;

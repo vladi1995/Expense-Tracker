@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useForm } from "../../hooks/useForm";
+import validateInfo from "../../util/validateInfo";
 import styles from "./Register.module.css";
 
 export default function Register() {
@@ -10,13 +11,13 @@ export default function Register() {
     RepeatPassword: 'repeat-password',
   };
 
-  const { onRegisterSubmit } = useAuthContext();
+  const { onRegisterSubmit, serverError } = useAuthContext();
 
-  const {values, onChangeValues, onSubmit} = useForm({
+  const {values, onChangeValues, onSubmit, errors} = useForm({
     [registerValues.Email]: '',
     [registerValues.Password]: '',
     [registerValues.RepeatPassword]: '',
-  }, onRegisterSubmit);
+  }, onRegisterSubmit, validateInfo);
 
   return (
     <section className={`${styles['container-register']}`}>
@@ -26,7 +27,7 @@ export default function Register() {
           <img src="/login-icon.png" alt="logo-login" />
         </div>
         <div>
-          <form className={`${styles["login-form"]}`} method="post" onSubmit={onSubmit}>
+          <form className={`${styles["register-form"]}`} method="post" onSubmit={onSubmit}>
             <div>
               <input
                 type="text"
@@ -35,7 +36,6 @@ export default function Register() {
                 value={values[registerValues.Email]}
                 onChange={onChangeValues}
                 placeholder="Email"
-                required
               />
             </div>
 
@@ -47,7 +47,6 @@ export default function Register() {
                 value={values[registerValues.Password]}
                 onChange={onChangeValues}
                 placeholder="Password..."
-                required
               />
             </div>
 
@@ -59,13 +58,17 @@ export default function Register() {
                 value={values[registerValues.RepeatPassword]}
                 onChange={onChangeValues}
                 placeholder="Confirm-password..."
-                required
               />
             </div>
 
-            <button type="submit" className={`${styles["btn-login"]}`}>
+            <button type="submit" className={`${styles["btn-register"]}`}>
               Register
             </button>
+
+            {serverError && <p className={`${styles['errors-paragraph']}`}>{serverError}</p>}
+            {errors[registerValues.Email] && <p className={`${styles['errors-paragraph']}`}>{errors[registerValues.Email]}</p>}
+            {errors[registerValues.Password] && <p className={`${styles['errors-paragraph']}`}>{errors[registerValues.Password]}</p>}
+            {errors[registerValues.RepeatPassword] && <p className={`${styles['errors-paragraph']}`}>{errors[registerValues.RepeatPassword]}</p>}
           </form>
         </div>
       </article>

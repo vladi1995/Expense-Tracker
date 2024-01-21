@@ -22,7 +22,7 @@ const requester = async (method, url, data) => {
             options.headers = {
                 ...options.headers,
                 'X-Authorization': auth.accessToken,
-            }
+            };
         }
     }
 
@@ -39,7 +39,7 @@ const requester = async (method, url, data) => {
     }
 
     return result;
-}
+};
 
 export const requestFactory = () => {
     return {
